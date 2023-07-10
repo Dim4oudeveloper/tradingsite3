@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Market Prediction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        #app {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .input-container input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        .input-container button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+        .result {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock Analyzer</h1>
+    <p>Welcome to Stock Analyst. We are glad to have you on board. Let your trading journey begin!</p>
+    <img src="https://media.istockphoto.com/id/871068074/photo/businessman-with-virtual-screen-and-data-statistic-index-graph-analysis-graph-of-stock-market.jpg?s=2048x2048&w=is&k=20&c=8LWaOZVU1vdA27mXBqqgWt8_L3Re34pZ-KY876huIx4=" width="400" height="300">
+    <p>Our journey and idea are to make the world a better place, where everyone can become a profitable trader and achieve financial independence. We hope that our program will somehow help you. We are not your financial advisor, so after you have seen our site, calculate the risk for yourself.</p>
+    <img src="https://s14085.pcdn.co/wp-content/uploads/2017/05/bullish.jpg" width="400" height="300">
+
+    <div id="app">
+        <div class="input-container">
+            <input type="text" placeholder="Enter stock name" v-model="stockName">
+            <button @click="predict">Predict</button>
+        </div>
+        <div class="result" v-if="prediction !== null">
+            The stock {{ stockName }} is likely to {{ prediction ? 'increase' : 'decrease' }} in value.
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                stockName: '',
+                prediction: null
+            },
+            methods: {
+                predict() {
+                    // Here you can implement your stock market prediction logic
+                    // For simplicity, let's assume it always predicts a decrease (false)
+                    this.prediction = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
