@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Market Prediction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        #app {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .input-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .input-container input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        
+        .input-container button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .input-container button:hover {
+            background-color: #45a049;
+        }
+        
+        .result {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Stock Analyzer</h1>
+    <p>Welcome to Stock Analyst. We are glad to have you on board. Let your trading journey begin!</p>
+    <img src="https://media.istockphoto.com/id/871068074/photo/businessman-with-virtual-screen-and-data-statistic-index-graph-analysis-graph-of-stock-market.jpg?s=2048x2048&amp;w=is&amp;k=20&amp;c=8LWaOZVU1vdA27mXBqqgWt8_L3Re34pZ-KY876huIx4=" width="400" height="300">
+    <p>Our journey and idea are to make the world a better place, where everyone can become a profitable trader and achieve financial independence. We hope that our program will somehow help you. We are not your financial advisor, so after you have seen our site, calculate the risk for yourself.</p>
+    <img src="https://s14085.pcdn.co/wp-content/uploads/2017/05/bullish.jpg" width="400" height="300">
+
+    <div id="app">
+        <div class="input-container">
+            <input type="text" placeholder="Enter stock name" v-model="stockName">
+            <button v-on:click="predict">Predict</button>
+        </div>
+        <div class="result" v-if="prediction !== null">
+            The stock {{ stockName }} is likely to decrease in value.
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Latest Price</th>
+                <th>Change</th>
+                <th>% Change</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tesla</td>
+                <td>$274.43</td>
+                <td>$9.00</td>
+                <td>3.39%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Attribute</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>PREVIOUS CLOSE</td>
+                <td>$274.43</td>
+            </tr>
+            <tr>
+                <td>DAY RANGE</td>
+                <td>$265.10 - $277.52</td>
+            </tr>
+            <tr>
+                <td>YEAR RANGE</td>
+                <td>$101.81 - $314.67</td>
+            </tr>
+            <tr>
+                <td>MARKET CAP</td>
+                <td>844.81B USD</td>
+            </tr>
+            <tr>
+                <td>AVG VOLUME</td>
+                <td>155.84M</td>
+            </tr>
+            <tr>
+                <td>P/E RATIO</td>
+                <td>79.38</td>
+            </tr>
+            <tr>
+                <td>DIVIDEND YIELD</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>PRIMARY EXCHANGE</td>
+                <td>NASDAQ</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                stockName: '',
+                prediction: null
+            },
+            methods: {
+                predict() {
+                    this.prediction = true;
+                    this.prediction = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
